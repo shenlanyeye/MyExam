@@ -10,6 +10,11 @@
 	<name>MyExam</name>
 	<url>http://thinkgem.github.com/jeesite</url>
     
+	<scm>
+      <url>https://github.com/liuyun073/MyExam.git</url>
+      <connection>scm:git:https://github.com/liuyun073/MyExam.git</connection>
+   </scm>
+   
 	<!-- 项目属性 -->
 	<properties>
 	    
@@ -596,7 +601,11 @@
 				<artifactId>tomcat6-maven-plugin</artifactId>
 				<version>${tomcat.version}</version> 
 				<configuration>
-					<path>/${project.artifactId}</path>
+				    <charset>${project.build.sourceEncoding}</charset>  
+					<url>http://127.0.0.1:8080/manager</url>
+					<server>tomcat.server</server>
+					<warFile>target/${project.artifactId}.war</warFile>
+					<uriEncoding>${project.build.sourceEncoding}</uriEncoding>
 				</configuration>
 			</plugin>
 			
@@ -606,7 +615,7 @@
 				<artifactId>tomcat7-maven-plugin</artifactId>
 				<version>${tomcat.version}</version> 
 				<configuration>
-					<url>http://115.28.173.115:8080/manager/html</url>
+					<url>http://127.0.0.1:8080/manager/text</url>
 					<server>tomcat.server</server>
 					<warFile>target/${project.artifactId}.war</warFile>
 				</configuration>
